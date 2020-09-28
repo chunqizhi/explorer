@@ -15,13 +15,13 @@ angular.module('ethExplorer')
 	}
 	
         $scope.processRequest = function() {
-             var requestStr = $scope.ethRequest.split('0x').join('');
+             var requestStr = $scope.ethRequest.split('Gs').join('');
 
             if (requestStr.length === 40)
               return goToAddrInfos(requestStr)
             else if(requestStr.length === 64) {
               if(/[0-9a-zA-Z]{64}?/.test(requestStr))
-                return goToTxInfos('0x'+requestStr)
+                return goToTxInfos('Gs'+requestStr)
               else if(/[0-9]{1,7}?/.test(requestStr))
                 return goToBlockInfos(requestStr)
             }else if(parseInt(requestStr) > 0)
